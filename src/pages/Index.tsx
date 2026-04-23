@@ -1,16 +1,38 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/portfolio/Navbar";
+import Hero from "@/components/portfolio/Hero";
+import About from "@/components/portfolio/About";
+import Skills from "@/components/portfolio/Skills";
+import Projects from "@/components/portfolio/Projects";
+import Experience from "@/components/portfolio/Experience";
+import Contact from "@/components/portfolio/Contact";
+import { useEffect } from "react";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  useEffect(() => {
+    document.title = "Urvi Vadher — Frontend Developer & React.js Specialist";
+    const meta = document.querySelector('meta[name="description"]');
+    const content =
+      "Portfolio of Urvi Vadher — Frontend developer crafting responsive React.js interfaces with HTML, CSS, JavaScript and a love for clean design.";
+    if (meta) meta.setAttribute("content", content);
+    else {
+      const m = document.createElement("meta");
+      m.name = "description";
+      m.content = content;
+      document.head.appendChild(m);
+    }
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
+    <main className="min-h-screen bg-background">
+      <Navbar />
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Experience />
+      <Contact />
+    </main>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
